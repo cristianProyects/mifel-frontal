@@ -11,7 +11,7 @@ const router = createRouter({
         {
           path: '/list',
           name: 'users-list',
-          component: () => import('@/modules/users/views/Layout.vue'),
+          component: () => import('@/modules/users/views/UserList.vue'),
         },
         {
           path: '/form',

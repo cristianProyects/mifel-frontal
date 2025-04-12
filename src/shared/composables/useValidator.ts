@@ -1,4 +1,4 @@
-import { helpers } from '@vuelidate/validators'
+import { helpers, required } from '@vuelidate/validators'
 import type { Validation } from '@vuelidate/core'
 
 const validator = () => {
@@ -29,41 +29,58 @@ const validator = () => {
     helpers.regex(/^([A-ZÑ&]{4})(\d{6})([A-Z0-9]{3})$/),
   )
 
-  const validationRulesUsers = {
+  const requeredField = helpers.withMessage('Este campo es obligatorio', required)
+
+  const validationRulesUserAddress = {
     form: {
-      name: {
-        lettersOnly,
-      },
-      firstName: {
-        lettersOnly,
-      },
-      secondName: {
-        lettersOnly,
-      },
-      curp: {
-        validateCURP,
-      },
-      rfc: {
-        validateRFC,
-      },
       cp: {
         numbersOnly,
+        requeredField,
       },
-      street: '',
+      street: {
+        requeredField,
+      },
       outerNumber: {
         numbersOnly,
+        requeredField,
       },
       interiorNumber: {
         AlphanumericOnly,
       },
       state: {
         lettersOnly,
+        requeredField,
       },
       municipality: {
         lettersOnly,
+        requeredField,
       },
       colony: {
         lettersOnly,
+        requeredField,
+      },
+    },
+  }
+  const validationRulesUserInformation = {
+    form: {
+      name: {
+        lettersOnly,
+        requeredField,
+      },
+      firstName: {
+        lettersOnly,
+        requeredField,
+      },
+      secondName: {
+        lettersOnly,
+      },
+      curp: {
+        validateCURP,
+        requeredField,
+      },
+      rfc: {
+        validateRFC,
+        requeredField,
       },
     },
   }
@@ -75,7 +92,8 @@ const validator = () => {
   }
 
   return {
-    validationRulesUsers,
+    validationRulesUserAddress,
+    validationRulesUserInformation,
     getErrorMessage,
   }
 }
