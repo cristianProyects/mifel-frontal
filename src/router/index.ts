@@ -6,12 +6,12 @@ const router = createRouter({
     {
       path: '/',
       name: 'template-users',
-      component: () => import('@/modules/users/views/Template.vue'),
+      component: () => import('@/modules/users/views/Layout.vue'),
       children: [
         {
           path: '/list',
           name: 'users-list',
-          component: () => import('@/modules/users/views/Template.vue'),
+          component: () => import('@/modules/users/views/Layout.vue'),
         },
         {
           path: '/form',

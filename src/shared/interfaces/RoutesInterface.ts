@@ -1,5 +1,9 @@
 export interface Routes {
-    title: string
-    value: string
-    icon: string
-  }
+  title: string
+  to: to
+  icon: string
+}
+
+export interface to {
+  name: string
+}
