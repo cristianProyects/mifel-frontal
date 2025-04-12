@@ -3,6 +3,7 @@ import ListInformation from '../components/ListInformation.vue'
 import ListAddress from '../components/ListAddress.vue'
 import ListContact from '../components/ListContact.vue'
 import ListSite from '../components/ListSite.vue'
+import ListMapUser from '../components/ListMapUser.vue'
 import { ref, onMounted } from 'vue'
 import { listUsers } from '../services/api'
 
@@ -27,6 +28,7 @@ onMounted(() => {
         <ListContact :user="user" />
         <ListAddress :user="user" />
         <ListSite :user="user" />
+        <ListMapUser :lat="user.address.geo.lat" :lng="user.address.geo.lng" :map-id="`map-${user.id}`" />
 
         <v-row class="mt-3" dense>
           <v-col cols="6">

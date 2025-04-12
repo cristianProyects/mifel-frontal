@@ -8,6 +8,8 @@ import router from './router'
 
 import vuetify from './plugins/vuetify.ts'
 import '@mdi/font/css/materialdesignicons.css'
+import 'leaflet/dist/leaflet.css'
+
 
 const app = createApp(App)
 
